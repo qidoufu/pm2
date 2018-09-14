@@ -1,0 +1,190 @@
+html {
+    font-family: "微软雅黑";
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url(../img/bg.png);
+    background-size: cover;
+    background-position: bottom center;
+    height: 100vh;
+    padding: 0px 15px;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+//布局
+$size:16px!default;
+$color:#000!default;
+@mixin font($size, $color) {
+    font-size: $size;
+    color: $color;
+}
+
+// 盒子大小
+$width:auto!default;
+$height:auto!default;
+@mixin box($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+//移动端换算比例
+@function px2rem($px) {
+    $rem: 75;
+    @return ( $px / $rem)+rem;
+}
+
+//文字位置
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+//盒子居中
+.box-center {
+    margin: 0 auto;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+//flex布局
+.flex {
+    display: flex;
+}
+
+.flex_base {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex_basec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.flex_between {
+    display: flex;
+    justify-content: space-between;
+}
+
+//浮动
+.float_left {
+    float: left;
+}
+
+.float_right {
+    float: right;
+}
+
+//单行文本隐藏
+.ecplice {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+//多行文本隐藏
+@mixin column($column) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $column;
+    overflow: hidden;
+}
+
+.top {
+    margin-top: 45px;
+    margin-bottom: 35px;
+}
+
+.phonewrap {
+    @extend .flex_between;
+    .phonebox {
+        width: 32%;
+        display: inline-block;
+        margin-right: 2%;
+        &:nth-child(3n) {
+            margin-right: 0px;
+        }
+    }
+}
+
+.phonewrap {
+    font-size: 0px;
+}
+
+.imgbox {
+    // height: px2rem(580);
+    background: rgba($color: #fff, $alpha: .4);
+    padding: px2rem(15);
+    img {
+        // min-height: 145px;
+        width: 80%;
+        margin-top: px2rem(20);
+    }
+    p {
+        font-size: px2rem(26);
+        color: #ffff00;
+        white-space: nowrap;
+        margin-top: px2rem(20);
+        font-style: italic;
+    }
+}
+
+.caption {
+    @extend .flex;
+    background: url(../img/bottombg.png);
+    background-size: cover;
+    background-position: center left;
+    padding: 5px;
+    height: px2rem(91);
+}
+
+.tag {
+    font-size: px2rem(14);
+    color: #000000;
+    width: 27%;
+    @extend .flex_base;
+}
+
+.price {
+    font-size: px2rem(29);
+    color: #ff0000;
+    width: 73%;
+    @extend .flex_base;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
